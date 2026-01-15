@@ -1,23 +1,23 @@
-public class Practice {
-    public static void main(String[] args) {
-        Node head = new Node('g', null);
-        Node ryan = new Node('s', null);
-        head.next = ryan;
-        ryan.next = new Node('t', null);
-        // ryan.next.next = new Node('x', null);
+public class MyLL {
+    private class Node {
+        public char value;
+        public Node next;
         
-        // Expect to print true
-        System.out.println(contains(head, 'x'));
-
-        // Expect to print false
-        System.out.println(contains(head, 'e'));
-
-        remove(head, 't');
-
-        printList(head);
+        public Node(char value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
     }
 
-    public static void printList(Node start) {
+
+    private Node head;
+
+    public MyLL() {
+        head = null;
+    }
+
+
+    public void printList(Node start) {
         Node current = start;
 
         while (current != null) {
@@ -25,8 +25,8 @@ public class Practice {
             current = current.next;
         }
     }
-    public static boolean contains(Node start, char toFind) {
-        Node current = start;
+    public boolean contains(char toFind) {
+        Node current = head;
         while (current != null) {
             if (current.value == toFind) {
                 return true;
@@ -37,8 +37,16 @@ public class Practice {
     }
 
     //remove the first node that has toRemove
-    public static char remove(Node head, char toRemove) {
+    public char remove(Node head, char toRemove) {
+        if (head == null) {
+            return '\0';
+        }
+        if (head.value == toRemove) {
+            head = head.next;
+        }
+
         Node current = head;
+        
         while (current.next != null) {
             if (current.next.value == toRemove) {
                 current.next = current.next.next;
@@ -50,3 +58,4 @@ public class Practice {
         return '\0';
     }
 }
+
