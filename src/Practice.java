@@ -1,20 +1,39 @@
 public class Practice {
     public static void main(String[] args) {
-        Node head = new Node('g', null);
-        Node ryan = new Node('s', null);
-        head.next = ryan;
-        ryan.next = new Node('t', null);
-        // ryan.next.next = new Node('x', null);
+        // Node head = new Node('g', null);
+        // Node ryan = new Node('s', null);
+        // head.next = ryan;
+        // ryan.next = new Node('t', null);
+        // // ryan.next.next = new Node('x', null);
         
-        // Expect to print true
-        System.out.println(contains(head, 'x'));
+        // // Expect to print true
+        // System.out.println(contains(head, 'x'));
 
-        // Expect to print false
-        System.out.println(contains(head, 'e'));
+        // // Expect to print false
+        // System.out.println(contains(head, 'e'));
 
-        remove(head, 't');
+        // remove(head, 't');
 
-        printList(head);
+        // printList(head);
+        MyLL list = new MyLL();
+
+        list.addToBack('x');
+        list.addToBack('m');
+        list.addToBack('v');
+        list.addToBack('q');
+
+        // list.printList();
+        list.printListBackwards();
+
+        MyLL<Integer> intList = new MyLL<>();
+
+        intList.addToBack(5);
+        intList.addToBack(777);
+        intList.addToBack(2);
+        intList.addToBack(-3333);
+        intList.addToBack(99);
+
+
     }
 
     public static void printList(Node start) {
